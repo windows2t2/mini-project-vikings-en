@@ -1,7 +1,7 @@
 # With a correction already implemented: dont forget to initialize an instance of Class "War"
 
 
-from .vikingsClasses import Soldier, Viking, Saxon, War
+from vikingsClasses import Soldier, Viking, Saxon, War
 import random
 
 
@@ -21,6 +21,8 @@ for i in range(0,5):
 round = 0
 while great_war.showStatus() == "Vikings and Saxons are still in the thick of battle.":
     great_war.vikingAttack()
+    if not great_war.saxonArmy or not great_war.vikingArmy:
+        break
     great_war.saxonAttack()
     print(f"round: {round} // Viking army: {len(great_war.vikingArmy)} warriors",f"and Saxon army: {len(great_war.saxonArmy)} warriors")
     print(great_war.showStatus())
